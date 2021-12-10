@@ -1,0 +1,43 @@
+{
+  "name": "vanilla-to-do-list",
+  "version": "1.0.0",
+  "description": "Effort to create todo list SPA using only core JS",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "lint:css": "stylelint \"src/**/*.scss\" --cache --color --cache-location \"./.cache/\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serhii-tyshchenko/VanillaToDoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serhii-tyshchenko/VanillaToDoList/issues"
+  },
+  "homepage": "https://github.com/serhii-tyshchenko/VanillaToDoList#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^10.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-merge": "^5.8.0"
+  }
+}
