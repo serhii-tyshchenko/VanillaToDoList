@@ -1,5 +1,6 @@
 import 'index.scss';
+import App from './app';
 
 const OUTPUT = document.getElementById('root');
 
-OUTPUT.innerHTML = '<h1>Hello World!</h1>';
+OUTPUT.innerHTML = App();
