@@ -4,9 +4,9 @@
   "description": "Effort to create todo list SPA using only core JS",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development webpack serve",
-    "lint:css": "stylelint \"src/**/*.scss\" --cache --color --cache-location \"./.cache/\""
+    "lint:css": "stylelint \"src/**/*.scss\" --cache --color --cache-location \"./.cache/\"",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",

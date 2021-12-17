@@ -1,0 +1,13 @@
+.add-todo-form {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+
+  .ui-input {
+    margin-right: 0.5rem;
+  }
+
+  .ui-button {
+    flex-shrink: 0;
+  }
+}

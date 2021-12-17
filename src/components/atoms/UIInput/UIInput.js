@@ -25,6 +25,5 @@ export const UIInput = (props = UIInputDefaultProps) => {
     value="${value}"
     class="ui-input"
     ${disabled ? 'disabled' : ''}
-    onChange="${onChange}"
    >`;
 };
