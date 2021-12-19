@@ -1,28 +1,46 @@
-import 'index.scss';
 import App from './app';
+import { Store } from 'store';
+import { mockedTodos } from 'mocks';
+
+import 'index.scss';
 
 export const eventHandlers = [];
-
 const OUTPUT = document.getElementById('root');
 
-OUTPUT.addEventListener('click', (e) => {
-  if (!e.target?.id) return null;
-
-  const targetId = e.target.id;
-  const pair = eventHandlers.find((el) => el.id === targetId);
+const handlerPairs = {
+  click: 'onClick',
+  change: 'onChange',
+};
+console.log(eventHandlers);
+const handleEvent = (e, type) => {
+  const targetId = e.target?.dataset?.key;
+  if (!targetId) return null;
+  const pair = eventHandlers.find(
+    (el) => el.id === targetId && el[handlerPairs[type]]
+  );
   if (pair) {
-    pair.onClick && pair.onClick(e);
+    pair[handlerPairs[type]](e);
   }
-});
+};
 
-OUTPUT.addEventListener('change', (e) => {
-  if (!e.target?.id) return null;
+const handleClickEvenet = (e) => handleEvent(e, 'click');
+const handleChangeEvenet = (e) => handleEvent(e, 'change');
 
-  const targetId = e.target.id;
-  const pair = eventHandlers.find((el) => el.id === targetId);
-  if (pair) {
-    pair.onChange && pair.onChange(e);
+OUTPUT.addEventListener('click', handleClickEvenet);
+
+OUTPUT.addEventListener('change', handleChangeEvenet);
+class AppRoot {
+  constructor(output, app) {
+    this.output = output;
+    this.app = app;
   }
-});
+  render() {
+    this.output.innerHTML = this.app();
+  }
+}
 
-OUTPUT.innerHTML = App();
+const myApp = new AppRoot(OUTPUT, App);
+
+export const store = new Store(myApp, mockedTodos);
+
+myApp.render();

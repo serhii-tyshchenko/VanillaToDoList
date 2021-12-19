@@ -1,4 +1,5 @@
 import { eventHandlers } from 'index.js';
+import { v4 as uuidv4 } from 'uuid';
 import './UICheckbox.scss';
 
 const UICheckboxDefaultProps = {
@@ -11,9 +12,10 @@ export const UICheckbox = (props) => {
     ...UICheckboxDefaultProps,
     ...props,
   };
+  const key = uuidv4();
 
-  eventHandlers.push({ id, onChange });
+  eventHandlers.push({ id: key, onChange });
   const isChecked = checked ? 'checked' : '';
 
-  return `<input id="${id}" type="checkbox" class="ui-checkbox" ${isChecked}>`;
+  return `<input id="${id}" data-key="${key}" type="checkbox" class="ui-checkbox" ${isChecked}>`;
 };

@@ -1,4 +1,4 @@
-import { UICheckbox } from 'components/atoms';
+import { UICheckbox, UIButton } from 'components/atoms';
 
 import './TodoItem.scss';
 
@@ -6,10 +6,12 @@ const TodoItemDefaultProps = {
   id: 'testId',
   isComplete: false,
   title: 'todo item',
+  onClick: () => {},
+  onChange: () => {},
 };
 
 export const TodoItem = ({ props }) => {
-  const { id, title, isComplete } = {
+  const { id, title, isComplete, onClick, onChange } = {
     ...TodoItemDefaultProps,
     ...props,
   };
@@ -17,8 +19,9 @@ export const TodoItem = ({ props }) => {
 
   return `
     <li class="${NAME_SPACE}">
+      ${UICheckbox({ id, checked: isComplete, onChange })}
       <span class="${NAME_SPACE}__title">${title}</span>
-      ${UICheckbox({ id, checked: isComplete })}
+      ${UIButton({ id, onClick, label: 'Delete' })}
     </li>
     `;
 };
